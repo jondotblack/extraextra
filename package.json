@@ -1,0 +1,23 @@
+{
+  "name": "extraextra",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Receive-only newsletter inbox on Cloudflare Email Routing + R2, with a daily Claude digest",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "fetch": "node --env-file=.env scripts/fetch-digest.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.0.0",
+    "typescript": "^5.5.0",
+    "wrangler": "^4.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
+    "html-to-text": "^9.0.5",
+    "postal-mime": "^2.2.5"
+  }
+}

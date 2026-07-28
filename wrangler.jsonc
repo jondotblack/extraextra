@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "extraextra",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  // Email-only worker: no HTTP route or workers.dev subdomain needed.
+  "workers_dev": false,
+  "r2_buckets": [
+    {
+      "binding": "NEWSLETTERS",
+      "bucket_name": "extraextra-mail"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
