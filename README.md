@@ -1,6 +1,8 @@
 # extraextra
 
-A receive-only newsletter inbox that costs $0/month. Cloudflare Email Routing
+A receive-only newsletter inbox that costs $0/month for most users — a
+typical newsletter diet sits far inside Cloudflare's free tiers (numbers
+below). Cloudflare Email Routing
 delivers mail for a custom address to an Email Worker, which stores the raw
 message in R2. A daily script pulls the last 24h, converts each newsletter to
 clean markdown, and an LLM groups and summarizes them into a digest.
