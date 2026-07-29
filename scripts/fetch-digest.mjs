@@ -100,6 +100,7 @@ for (const key of keys.sort()) {
   const frontmatter = [
     "---",
     `from: "${sender.replaceAll('"', "'")} <${email.from?.address ?? ""}>"`,
+    `to: "${(email.to ?? []).map((a) => a.address).join(", ")}"`,
     `subject: "${subject.replaceAll('"', "'")}"`,
     `date: "${email.date ?? ""}"`,
     `r2_key: "${key}"`,
