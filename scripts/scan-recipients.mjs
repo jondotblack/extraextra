@@ -8,6 +8,11 @@ import {
 import PostalMime from "postal-mime";
 
 const BUCKET = process.env.R2_BUCKET ?? "extraextra-mail";
+const INBOX = process.env.INBOX_ADDRESS;
+if (!INBOX) {
+  console.error("Missing INBOX_ADDRESS — set it in .env (e.g. read@yourdomain.com).");
+  process.exit(1);
+}
 const s3 = new S3Client({
   region: "auto",
   endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
@@ -40,7 +45,7 @@ for (const key of keys.sort()) {
   );
   const fwd =
     headers["x-forwarded-to"] || headers["x-forwarded-for"] || headers["delivered-to"] || "";
-  const viaForwarding = !to.toLowerCase().includes("read@extraextra.email");
+  const viaForwarding = !to.toLowerCase().includes(INBOX.toLowerCase());
   console.log(
     `${viaForwarding ? "FORWARDED" : "direct   "}  ${email.from?.address ?? "?"}  |  ${
       email.subject ?? ""
