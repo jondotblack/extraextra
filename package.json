@@ -19,5 +19,8 @@
     "@aws-sdk/client-s3": "^3.600.0",
     "html-to-text": "^9.0.5",
     "postal-mime": "^2.2.5"
+  },
+  "overrides": {
+    "sharp": "^0.35.4"
   }
 }
